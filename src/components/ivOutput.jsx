@@ -87,7 +87,7 @@ class IvOutput extends Component {
     }
 
     return (
-      <Table celled structured collapsing textAlign='center'>
+      <Table celled structured collapsing unstackable textAlign='center'>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell colSpan='5'>
