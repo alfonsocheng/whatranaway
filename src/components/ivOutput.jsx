@@ -16,9 +16,11 @@ class IvOutput extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    let apiUrl = 'https://whatranaway-api.herokuapp.com';
+    // apiUrl = 'http://localhost:3001';
     if (nextProps.pokemonId > 0 && nextProps.cp > 0) {
       // console.log(`IVs for poke ${nextProps.pokemonId} with cp ${nextProps.cp}`)
-      fetch(`https://whatranaway-api.herokuapp.com/pokemon/${nextProps.pokemonId}/${nextProps.cp}`)
+      fetch(`${apiUrl}/pokemon/${nextProps.pokemonId}/${nextProps.cp}`)
         .then((response) => {
           return response.json()
         })
@@ -136,9 +138,10 @@ class IvOutput extends Component {
     // rowSpan is the number of IV possibilities in that level
     // eg createTableRow(30, [15,15,15], true, 1, false) would be for bulbasaur 841 that is not a raid boss
 
+    // key should probably do a round before join since 1-5-11 might be same as 15-1-1
     if (disabled) {
       return (
-        <Table.Row disabled>
+        <Table.Row disabled key={ivPossibility.join('')}>
           { firstOfItsLevel ? (<Table.Cell rowSpan={rowSpan}>{level}</Table.Cell>) : null }
           <Table.Cell>{Math.round((ivPossibility[0] + ivPossibility[1] + ivPossibility[2]) * 1000 / 45) / 10}%</Table.Cell>
           <Table.Cell>{ivPossibility[1]}</Table.Cell>
@@ -148,7 +151,7 @@ class IvOutput extends Component {
       )
     } else {
       return (
-        <Table.Row>
+        <Table.Row key={ivPossibility.join('')}>
           { firstOfItsLevel ? (<Table.Cell rowSpan={rowSpan}>{level}</Table.Cell>) : null }
           <Table.Cell>{Math.round((ivPossibility[0] + ivPossibility[1] + ivPossibility[2]) * 1000 / 45) / 10}%</Table.Cell>
           <Table.Cell>{ivPossibility[1]}</Table.Cell>
