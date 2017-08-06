@@ -141,7 +141,7 @@ class IvOutput extends Component {
     // key should probably do a round before join since 1-5-11 might be same as 15-1-1
     if (disabled) {
       return (
-        <Table.Row disabled key={ivPossibility.join('')}>
+        <Table.Row disabled key={ivPossibility.reduce((a,b)=>{return a + ('0'+ b).slice(-2)}, 'IV')}>
           { firstOfItsLevel ? (<Table.Cell rowSpan={rowSpan}>{level}</Table.Cell>) : null }
           <Table.Cell>{Math.round((ivPossibility[0] + ivPossibility[1] + ivPossibility[2]) * 1000 / 45) / 10}%</Table.Cell>
           <Table.Cell>{ivPossibility[1]}</Table.Cell>
@@ -151,7 +151,7 @@ class IvOutput extends Component {
       )
     } else {
       return (
-        <Table.Row key={ivPossibility.join('')}>
+        <Table.Row key={ivPossibility.reduce((a,b)=>{return a + ('0'+ b).slice(-2)}, 'IV')}>
           { firstOfItsLevel ? (<Table.Cell rowSpan={rowSpan}>{level}</Table.Cell>) : null }
           <Table.Cell>{Math.round((ivPossibility[0] + ivPossibility[1] + ivPossibility[2]) * 1000 / 45) / 10}%</Table.Cell>
           <Table.Cell>{ivPossibility[1]}</Table.Cell>
