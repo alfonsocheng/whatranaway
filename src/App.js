@@ -5,6 +5,7 @@ import { MuiThemeProvider } from 'material-ui';
 
 // My stuff
 import PokemonPicker from './components/pokemonPicker'
+import QuickPicks from './components/quickPicks'
 import CpInput from './components/cpInput'
 import RaidCheckbox from './components/raidCheckbox'
 import IvOutput from './components/ivOutput'
@@ -31,7 +32,9 @@ class App extends Component {
               loading={true}
               onChange={this.handlePokemonChange}
             />
-            <div className='quick-picks'>a b c d</div>
+            <QuickPicks
+              onClick={this.handleQuickPick}
+            />
           </div>
           <CpInput
             value={this.state.cp}
@@ -57,10 +60,14 @@ class App extends Component {
   }
 
   handlePokemonChange = (e, data) => {
-    // console.log(data)
-    // debugger
     this.setState({
       pokemonId: data.value
+    })
+  }
+
+  handleQuickPick = (e) => {
+    this.setState({
+      pokemonId: parseInt(e.target.alt, 10)
     })
   }
 
