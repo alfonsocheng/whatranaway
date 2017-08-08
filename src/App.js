@@ -25,11 +25,14 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <PokemonPicker
-            value={this.state.pokemonId}
-            loading={true}
-            onChange={this.handlePokemonChange}
-          />
+          <div className='choose-a-pokemon'>
+            <PokemonPicker
+              value={this.state.pokemonId}
+              loading={true}
+              onChange={this.handlePokemonChange}
+            />
+            <div className='quick-picks'>a b c d</div>
+          </div>
           <CpInput
             value={this.state.cp}
             onChange={this.handleCpChange}
@@ -45,6 +48,9 @@ class App extends Component {
             ivs={this.state.ivs}
             raid={this.state.raidCheckboxChecked}
           />
+          <div className='feedback'>
+            <a href='mailto:qalfy@outlook.com'>Feedback?</a>
+          </div>
         </div>
       </MuiThemeProvider>
     );

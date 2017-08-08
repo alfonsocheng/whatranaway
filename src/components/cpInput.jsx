@@ -5,7 +5,7 @@ import { Input } from 'semantic-ui-react';
 class CpInput extends Component {
   render () {
     return (
-      <div>
+      <div className='cp-input'>
         <Input
           value={this.props.value}
           onChange={this.props.onChange}

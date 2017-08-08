@@ -1,3 +1,43 @@
 .App {
   text-align: center;
 }
+#root {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+#root > [data-reactroot] {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.choose-a-pokemon {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  padding-top: 3px;
+}
+
+.cp-input {
+  align-self: flex-start;
+  padding-top: 3px;
+}
+
+.raid-checkbox {
+  align-self: flex-start;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.feedback {
+  align-self: flex-start;
+}

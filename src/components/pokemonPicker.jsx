@@ -10,7 +10,7 @@ class PokemonPicker extends Component {
 
   render () {
     return (
-      <div>
+      <div className='pokemon-picker'>
         <Dropdown
           value={this.props.value}
           onChange={this.props.onChange}

@@ -4,7 +4,7 @@ import { Checkbox } from 'semantic-ui-react';
 class RaidCheckbox extends Component {
   render () {
     return (
-      <div>
+      <div className='raid-checkbox'>
         <Checkbox
           toggle
           label={this.props.label}
