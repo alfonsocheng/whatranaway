@@ -75,7 +75,7 @@ class IvOutput extends Component {
       _.each(levels, (level) => {
         _.each(ivsByLevel[level], (ivPossibility) => {
           rows.push(
-            this.createTableRow(level, ivPossibility, ivPossibility === ivsByLevel[level][0], ivsByLevel[level].length, this.props.raid ? level !== 20 : false)
+            this.createTableRow(level, ivPossibility, ivPossibility === ivsByLevel[level][0], ivsByLevel[level].length, this.props.raid ? level !== '20' : false)
           );
         });
       });
